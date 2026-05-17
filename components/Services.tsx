@@ -56,13 +56,13 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" className="py-16 lg:py-24 bg-gray-50">
+    <section id="services" aria-label="Our solar services" className="py-16 lg:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-blue-900 mb-4">
             Our Solar Services
           </h2>
-          <div className="w-24 h-1 bg-yellow-400 mx-auto"></div>
+          <div className="w-24 h-1 bg-yellow-400 mx-auto" aria-hidden="true"></div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

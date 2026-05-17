@@ -3,35 +3,35 @@ import { Shield, Award, Users } from 'lucide-react'
 export default function WhyChooseUs() {
   const benefits = [
     {
-      icon: <Shield className="w-12 h-12 text-yellow-400" />,
+      icon: <Shield className="w-12 h-12 text-yellow-400" aria-hidden="true" />,
       title: "Certified Experts",
       description: "Our team consists of licensed professionals with years of experience in solar energy solutions."
     },
     {
-      icon: <Award className="w-12 h-12 text-yellow-400" />,
+      icon: <Award className="w-12 h-12 text-yellow-400" aria-hidden="true" />,
       title: "Quality Guarantee",
       description: "We use only premium materials and provide comprehensive warranties on all installations."
     },
     {
-      icon: <Users className="w-12 h-12 text-yellow-400" />,
+      icon: <Users className="w-12 h-12 text-yellow-400" aria-hidden="true" />,
       title: "Customer First",
       description: "Dedicated support team ensures your satisfaction throughout the entire solar journey."
     }
   ]
 
   return (
-    <section id="why-choose-us" className="py-16 lg:py-24 bg-white">
+    <section id="why-choose-us" aria-label="Why choose SolarNex" className="py-16 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-blue-900 mb-4">
             Why Choose Us
           </h2>
-          <div className="w-24 h-1 bg-yellow-400 mx-auto"></div>
+          <div className="w-24 h-1 bg-yellow-400 mx-auto" aria-hidden="true"></div>
         </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+        <ul className="grid grid-cols-1 lg:grid-cols-3 gap-8 list-none p-0">
           {benefits.map((benefit, index) => (
-            <div 
+            <li
               key={index}
               className="text-center p-8 rounded-xl bg-gray-50 hover:bg-blue-50 transition-all duration-300 hover:shadow-lg group"
             >
@@ -44,9 +44,9 @@ export default function WhyChooseUs() {
               <p className="text-gray-600 leading-relaxed">
                 {benefit.description}
               </p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   )

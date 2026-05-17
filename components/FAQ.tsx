@@ -34,45 +34,66 @@ export default function FAQ() {
   }
 
   return (
-    <section id="faq" className="py-16 lg:py-24 bg-gray-50">
+    <section id="faq" aria-label="Frequently asked questions about solar energy" className="py-16 lg:py-24 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-blue-900 mb-4">
             Frequently Asked Questions
           </h2>
-          <div className="w-24 h-1 bg-yellow-400 mx-auto"></div>
+          <div className="w-24 h-1 bg-yellow-400 mx-auto" aria-hidden="true"></div>
         </div>
-        
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div 
-              key={index}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-            >
-              <button
-                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-300"
-                onClick={() => toggleFAQ(index)}
+
+        <dl className="space-y-4">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index
+            const itemId = `faq-item-${index}`
+            const answerId = `faq-answer-${index}`
+            return (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                itemScope
+                itemType="https://schema.org/Question"
               >
-                <h3 className="text-lg font-semibold text-blue-900 pr-4">
-                  {faq.question}
-                </h3>
-                {openIndex === index ? (
-                  <ChevronUp className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
-                )}
-              </button>
-              
-              {openIndex === index && (
-                <div className="px-6 pb-4">
-                  <p className="text-gray-600 leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+                <dt>
+                  <button
+                    id={itemId}
+                    aria-expanded={isOpen}
+                    aria-controls={answerId}
+                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-300"
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    <h3 className="text-lg font-semibold text-blue-900 pr-4" itemProp="name">
+                      {faq.question}
+                    </h3>
+                    {isOpen ? (
+                      <ChevronUp className="w-5 h-5 text-yellow-500 flex-shrink-0" aria-hidden="true" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" aria-hidden="true" />
+                    )}
+                  </button>
+                </dt>
+
+                <dd
+                  id={answerId}
+                  role="region"
+                  aria-labelledby={itemId}
+                  hidden={!isOpen}
+                  itemScope
+                  itemType="https://schema.org/Answer"
+                >
+                  {isOpen && (
+                    <div className="px-6 pb-4">
+                      <p className="text-gray-600 leading-relaxed" itemProp="text">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  )}
+                </dd>
+              </div>
+            )
+          })}
+        </dl>
       </div>
     </section>
   )

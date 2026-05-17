@@ -20,44 +20,52 @@ export default function Reviews() {
   ]
 
   return (
-    <section id="reviews" className="py-16 lg:py-24 bg-blue-900">
+    <section id="reviews" aria-label="Customer reviews" className="py-16 lg:py-24 bg-blue-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
             What Our Customers Say
           </h2>
-          <div className="w-24 h-1 bg-yellow-400 mx-auto"></div>
+          <div className="w-24 h-1 bg-yellow-400 mx-auto" aria-hidden="true"></div>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 list-none p-0"
+            itemScope
+            itemType="https://schema.org/ItemList"
+        >
           {reviews.map((review, index) => (
-            <div 
+            <li
               key={index}
               className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+              itemScope
+              itemType="https://schema.org/Review"
+              itemProp="itemListElement"
             >
-              <div className="flex items-center mb-4">
+              <div className="flex items-center mb-4" aria-label="5 out of 5 stars" role="img">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" aria-hidden="true" />
                 ))}
               </div>
-              
-              <p className="text-gray-600 mb-6 leading-relaxed italic">
-                "{review.text}"
-              </p>
-              
+
+              <blockquote className="text-gray-600 mb-6 leading-relaxed italic" itemProp="reviewBody">
+                &ldquo;{review.text}&rdquo;
+              </blockquote>
+
               <div className="flex items-center">
-                <div 
-                  className="w-12 h-12 rounded-full bg-cover bg-center mr-4"
+                <div
+                  className="w-12 h-12 rounded-full bg-cover bg-center mr-4 flex-shrink-0"
                   style={{ backgroundImage: `url("${review.avatar}")` }}
+                  role="img"
+                  aria-label={`Photo of ${review.name}`}
                 />
-                <div>
-                  <h4 className="font-semibold text-blue-900">{review.name}</h4>
+                <div itemScope itemType="https://schema.org/Person" itemProp="author">
+                  <h4 className="font-semibold text-blue-900" itemProp="name">{review.name}</h4>
                   <p className="text-gray-500 text-sm">Verified Customer</p>
                 </div>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   )
