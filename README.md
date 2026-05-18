@@ -1,6 +1,6 @@
 # SolarNex — Solar Energy Solutions UK
 
-Landing page profissional para empresa de energia solar no Reino Unido. O projeto oferece informações sobre serviços, captação de leads, avaliações de clientes e FAQ, com SEO completo aplicado.
+A professional landing page for a solar energy company in the United Kingdom. The project provides information about services, lead capture, customer reviews and FAQ, with full SEO implementation.
 
 ---
 
@@ -8,149 +8,149 @@ Landing page profissional para empresa de energia solar no Reino Unido. O projet
 
 ![SolarNex Preview](public/screenshot.png)
 
-> Para adicionar a screenshot: abra o projeto no navegador (`npm run dev`), tire um print da tela inteira e salve como `public/screenshot.png`.
+> To add the screenshot: open the project in your browser (`npm run dev`), take a full-page screenshot and save it as `public/screenshot.png`.
 
 ---
 
-## Sobre o Projeto
+## About the Project
 
-| Item | Detalhe |
-|------|---------|
-| **Inicio do projeto** | Maio 2026 |
-| **Dominio** | https://solarnex.com |
-| **Mercado** | Reino Unido |
-| **Objetivo** | Captacao de leads para instalacao de paineis solares |
-
----
-
-## Tecnologias
-
-| Tecnologia | Versao | Uso |
-|-----------|--------|-----|
-| [Next.js](https://nextjs.org) | 13.5 | Framework principal (SSG / Static Export) |
-| [React](https://react.dev) | 18.2 | UI |
-| [TypeScript](https://www.typescriptlang.org) | 5.2 | Tipagem estatica |
-| [Tailwind CSS](https://tailwindcss.com) | 3.3 | Estilizacao |
-| [shadcn/ui](https://ui.shadcn.com) | — | Componentes de UI acessiveis |
-| [Lucide React](https://lucide.dev) | 0.446 | Icones |
-| [React Hook Form](https://react-hook-form.com) | 7.53 | Formulario de captacao de leads |
-| [Zod](https://zod.dev) | 3.23 | Validacao de formulario |
-| [Supabase JS](https://supabase.com) | 2.58 | Banco de dados (leads) |
+| Item | Detail |
+|------|--------|
+| **Project start** | May 2026 |
+| **Domain** | https://solarnex.com |
+| **Market** | United Kingdom |
+| **Goal** | Lead generation for solar panel installation |
 
 ---
 
-## SEO Aplicado
+## Technologies
+
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| [Next.js](https://nextjs.org) | 13.5 | Main framework (SSG / Static Export) |
+| [React](https://react.dev) | 18.2 | UI layer |
+| [TypeScript](https://www.typescriptlang.org) | 5.2 | Static typing |
+| [Tailwind CSS](https://tailwindcss.com) | 3.3 | Styling |
+| [shadcn/ui](https://ui.shadcn.com) | — | Accessible UI components |
+| [Lucide React](https://lucide.dev) | 0.446 | Icons |
+| [React Hook Form](https://react-hook-form.com) | 7.53 | Lead capture form |
+| [Zod](https://zod.dev) | 3.23 | Form validation |
+| [Supabase JS](https://supabase.com) | 2.58 | Database (leads) |
+
+---
+
+## SEO Implementation
 
 ### Metadata
-- `title` com template dinamico por pagina (`%s | SolarNex`)
-- `meta description` otimizada com palavras-chave de alto volume
-- Array de `keywords` focadas no mercado solar UK
-- Tag `canonical` em todas as paginas para evitar conteudo duplicado
-- Atributos `robots` granulares (index/follow + Googlebot especifico)
-- `lang="en-GB"` e meta tags geograficas (`geo.region`, `geo.country`)
-- `theme-color` para navegadores mobile
+- `title` with dynamic template per page (`%s | SolarNex`)
+- Optimised `meta description` with high-volume keywords
+- `keywords` array focused on the UK solar market
+- `canonical` tag on all pages to prevent duplicate content
+- Granular `robots` attributes (index/follow + Googlebot-specific)
+- `lang="en-GB"` and geographical meta tags (`geo.region`, `geo.country`)
+- `theme-color` for mobile browsers
 
 ### Open Graph & Social
 - `og:title`, `og:description`, `og:image`, `og:locale` (en_GB)
 - `og:type: website` + `og:site_name`
 - Twitter Card `summary_large_image`
-- Imagem OG 1200x630px
+- OG image 1200x630px
 
 ### Structured Data (JSON-LD)
-| Schema | Beneficio |
-|--------|-----------|
-| `LocalBusiness` | Aparece no Google Maps / Knowledge Panel |
-| `WebSite` + `SearchAction` | Habilita caixa de busca no resultado Google |
-| `FAQPage` | Rich result de FAQ no Google (resposta expandida) |
-| `ItemList` + `Service` | Destaque de servicos nos resultados |
-| `AggregateRating` + `Review` | Estrelas de avaliacao nos resultados |
-| Microdata inline (`itemScope`/`itemProp`) | Reforco semantico nos cards de review |
+| Schema | Benefit |
+|--------|---------|
+| `LocalBusiness` | Appears in Google Maps / Knowledge Panel |
+| `WebSite` + `SearchAction` | Enables search box in Google results |
+| `FAQPage` | FAQ rich result in Google (expanded answer) |
+| `ItemList` + `Service` | Service highlights in search results |
+| `AggregateRating` + `Review` | Star ratings in search results |
+| Inline Microdata (`itemScope`/`itemProp`) | Semantic reinforcement on review cards |
 
-### Acessibilidade & Core Web Vitals
-- `aria-label` em todas as secoes
-- FAQ com `aria-expanded`, `aria-controls` e estrutura `<dl>/<dt>/<dd>`
-- Reviews com `<blockquote>` e marcacao de lista semantica
-- Icones marcados com `aria-hidden="true"`
-- Google Font carregada com `display: swap` (evita FOIT)
-- `dns-prefetch` para Pexels (imagens externas)
+### Accessibility & Core Web Vitals
+- `aria-label` on all sections
+- FAQ with `aria-expanded`, `aria-controls` and `<dl>/<dt>/<dd>` structure
+- Reviews with `<blockquote>` and semantic list markup
+- Icons marked with `aria-hidden="true"`
+- Google Font loaded with `display: swap` (prevents FOIT)
+- `dns-prefetch` for Pexels (external images)
 
-### Rastreamento & Indexacao
-- `public/sitemap.xml` com todas as rotas e prioridades
-- `public/robots.txt` com `Sitemap:` declarado
-- Suporte a verificacao Google (`verification.google`)
-
----
-
-## Estrutura de Paginas
-
-```
-/                    → Landing page principal
-/privacy-policy      → Politica de privacidade
-/terms-of-service    → Termos de servico
-```
+### Crawling & Indexing
+- `public/sitemap.xml` with all routes and priorities
+- `public/robots.txt` with `Sitemap:` declaration
+- Google verification support (`verification.google`)
 
 ---
 
-## Como Rodar Localmente
+## Page Structure
 
-### Pre-requisitos
+```
+/                    → Main landing page
+/privacy-policy      → Privacy policy
+/terms-of-service    → Terms of service
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
 
 - Node.js 18+
-- npm ou yarn
+- npm or yarn
 
-### Instalacao
+### Installation
 
 ```bash
-# 1. Clone o repositorio
-git clone https://github.com/seu-usuario/solarnex.git
+# 1. Clone the repository
+git clone https://github.com/your-username/solarnex.git
 cd solarnex
 
-# 2. Instale as dependencias
+# 2. Install dependencies
 npm install
 
-# 3. Configure as variaveis de ambiente
+# 3. Configure environment variables
 cp .env.example .env
-# Edite o .env com suas credenciais do Supabase
+# Edit .env with your Supabase credentials
 ```
 
-### Variaveis de Ambiente
+### Environment Variables
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=sua_url_supabase
-NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anonima
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
 ```
 
-### Comandos
+### Commands
 
 ```bash
-# Desenvolvimento
+# Development
 npm run dev
 
-# Build de producao
+# Production build
 npm run build
 
-# Servir build estatico
+# Serve production build
 npm run start
 
-# Verificar tipos TypeScript
+# TypeScript type check
 npm run typecheck
 ```
 
-O servidor de desenvolvimento estara disponivel em `http://localhost:3000`.
+The development server will be available at `http://localhost:3000`.
 
 ---
 
-## Deploy
+## Deployment
 
-O projeto usa `output: 'export'` no `next.config.js`, gerando arquivos HTML estaticos na pasta `out/`. Compativel com:
+The project uses `output: 'export'` in `next.config.js`, generating static HTML files in the `out/` folder. Compatible with:
 
-- **Vercel** (recomendado)
+- **Vercel** (recommended)
 - **Netlify**
 - **GitHub Pages**
-- Qualquer CDN / hosting estatico
+- Any CDN / static hosting
 
 ---
 
-## Licenca
+## Licence
 
-Todos os direitos reservados © 2026 SolarNex.
+All rights reserved &copy; 2026 SolarNex.
