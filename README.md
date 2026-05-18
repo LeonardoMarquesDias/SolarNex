@@ -6,7 +6,8 @@ Landing page profissional para empresa de energia solar no Reino Unido. O projet
 
 ## Preview
 
-![SolarNex Preview](public/screenshot.png)
+<img width="1921" height="5352" alt="screencapture-solarnex-co-uk-2026-05-18-00_38_29" src="https://github.com/user-attachments/assets/ee4f0ca6-58ee-4699-b950-ee6deb7c6c15" />
+
 
 > Para adicionar a screenshot: abra o projeto no navegador (`npm run dev`), tire um print da tela inteira e salve como `public/screenshot.png`.
 
